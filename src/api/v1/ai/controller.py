@@ -12,8 +12,7 @@ router = APIRouter()
 
 
 @router.post("/reviews/moderation/")
-async def moderation_reviews(request: Request):
-    name_database = request.query_params.get("name_database")
+async def moderation_reviews(request: Request, name_database: str):
     await moderator_service.get_moderators(name_database=name_database)
 
     log_file_path = getattr(request.state, "log_file_path", None)
