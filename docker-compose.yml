@@ -1,10 +1,4 @@
 services:
-  redis:
-    image: redis:7
-    ports:
-      - "6379:6379"
-    restart: unless-stopped
-
   moderator_api:
     env_file: secrets/.env
     build:
