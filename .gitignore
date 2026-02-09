@@ -101,6 +101,5 @@ ENV/
 /.bash_history
 /.ipython/
 /.ipython/
-docker-compose.yml
 src.celerybeat-schedule
 secrets/*
