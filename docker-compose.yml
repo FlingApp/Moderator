@@ -9,6 +9,4 @@ services:
       - "8003:8000"
     volumes:
       - ./src:/app/src
-    depends_on:
-      - redis
     restart: unless-stopped
