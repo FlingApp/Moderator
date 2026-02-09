@@ -26,7 +26,7 @@ class FirebaseService:
             service_account=cfg.firebase.__getattribute__(name_database),
         )
 
-        all_reviews = fb_client.collection_group("reviews")
+        all_reviews = fb_client.collection_group("reviews").where("moderatedStatus", "==", "unreviewed")
         all_reviews = all_reviews \
             .where("date", ">=", start_time) if start_time else all_reviews
         all_reviews = all_reviews \
