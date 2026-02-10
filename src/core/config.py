@@ -35,7 +35,7 @@ class OpenaiConfig(BaseModel):
 class RedisConfig(BaseSettings):
     driver: str = "redis"
     host: str = "localhost"
-    port: int = 6379
+    port: int = 6377
 
     @property
     def url(self) -> str:
