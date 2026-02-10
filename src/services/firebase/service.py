@@ -47,6 +47,7 @@ class FirebaseService:
         for review in moderated_reviews:
             review_id = review.get("id")
             author_id = review.get("author_id")
+            flagged = review.get("flagged")
 
             if not review_id or not author_id:
                 continue
@@ -58,8 +59,10 @@ class FirebaseService:
                 .document(review_id)
             )
 
+            status = "reviewed_ai" if flagged else "rejected_ai"
+
             batch.update(ref, {
-                "moderatedStatus": "reviewed_ai"
+                "moderatedStatus": status
             })
 
             counter += 1
